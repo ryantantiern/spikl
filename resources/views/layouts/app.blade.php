@@ -55,6 +55,13 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+                            <!-- Search Bar -->
+                            <form name="serachBox" action="{{ route('search')  }}" method="GET">
+                                <input type="text" name="query" placeholder="search">
+                                <input type="submit">
+                            </form>
+                            <!-- Search Bar End -->
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
