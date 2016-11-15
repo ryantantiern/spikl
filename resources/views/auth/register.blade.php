@@ -10,20 +10,54 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <!-- First Name Field-->
+                        <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                            <label for="firstName" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="firstName" type="text" class="form-control" name="firstName" value="{{ old('firstName') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('firstName'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firstName') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
+                        <!-- Last Name Field-->
+                        <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                            <label for="lastName" class="col-md-4 control-label">Last Name</label>
+
+                            <div class="col-md-6">
+                                <input id="lastName" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}" required autofocus>
+
+                                @if ($errors->has('lastName'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('lastName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <!-- University Name Field-->
+                        <div class="form-group{{ $errors->has('university') ? ' has-error' : '' }}">
+                            <label for="university" class="col-md-4 control-label">University</label>
+
+                            <div class="col-md-6">
+                                <input id="university" type="text" class="form-control" name="university" value="{{ old('university') }}" required autofocus>
+
+                                @if ($errors->has('university'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('university') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <!-- Email Name Field-->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -38,6 +72,8 @@
                             </div>
                         </div>
 
+
+                        <!-- Password Field-->
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -52,6 +88,8 @@
                             </div>
                         </div>
 
+
+                        <!-- Confirm Password Field-->
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 

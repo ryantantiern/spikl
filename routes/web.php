@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
+/**
+ * Search
+ */
+Route::get('/search', [
+	'uses' => 'SearchController@getResults',
+	'as' => 'search.results'
+]);
