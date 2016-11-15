@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function university() 
+    {
+        return $this->belongsTo('App\Models\university', 'university_id', 'id');
+    }
 }

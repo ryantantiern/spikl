@@ -16,8 +16,8 @@ class CreateLangProficenciesTable extends Migration
         //
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userId');
-            $table->integer('languageId');
+            $table->integer('user_id');
+            $table->integer('language_id');
             $table->enum('proficiency', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
         });
 
