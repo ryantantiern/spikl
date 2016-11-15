@@ -21,6 +21,8 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/jquery.autocomplete.js"></script>
 </head>
 <body>
     <div id="app">
@@ -57,7 +59,7 @@
                         @else
                             <!-- Search Bar -->
                             <form name="serachBox" action="{{ route('search')  }}" method="GET">
-                                <input type="text" name="query" placeholder="search">
+                                <input type="text" name="query" id="autocomplete" placeholder="search" autocomplete="off">
                                 <input type="submit">
                             </form>
                             <!-- Search Bar End -->
@@ -92,5 +94,19 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script>
+        var countries = [
+           { value: 'Andorra', data: 'AD' },
+           { value: 'Zimbabwe', data: 'ZZ' }
+        ];
+
+        $('#autocomplete').autocomplete({
+            lookup: countries,
+            onSelect: function (suggestion) {
+                alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+            }
+        });
+    </script>
+
 </body>
 </html>
