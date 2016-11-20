@@ -20,6 +20,12 @@ elixir(mix => {
 
 elixir(mix => {
 	mix.scripts([
-		'jquery.autocomplete.js'
+		'jquery-ui.min.js'
 	]);
+});
+
+elixir(function(mix) {
+    mix.styles([
+    	'jquery-ui.min.css'
+    ]);
 });

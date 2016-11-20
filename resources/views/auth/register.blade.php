@@ -118,21 +118,35 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    var universities = [
-        { value: 'University College London' , data: 'UCL' },
-        { value: 'Imperial College London', data:'ICL' },
-        { value: 'The University of York', data:'YU' },
-        { value: 'London School of Economics', data: 'LSE' },
-        { value: 'Kings College London', data: 'KCL'}
+$( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
     ];
-
-    $('#university').autocomplete({
-        lookup: universities,
-        onSelect: function(suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-        }
+    $( "#university" ).autocomplete({
+      source: availableTags
     });
-</script>
+  } );
+  </script>
+
 @endsection
