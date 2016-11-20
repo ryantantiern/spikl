@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    
 
     <!-- Scripts -->
     <script>
@@ -19,7 +20,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/all.js"></script>
 </head>
 <body>
