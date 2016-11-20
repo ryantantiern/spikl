@@ -47,13 +47,7 @@
 
                             <div class="col-md-6">
                                 <input id="university" type="text" class="form-control" name="university" value="{{ old('university') }}"  autofocus>
-                                
-                                <div class="autocomplete-suggestions">
-                                    <div class="autocomplete-group"><strong>NHL</strong></div>
-                                    <div class="autocomplete-suggestion autocomplete-selected">...</div>
-                                    <div class="autocomplete-suggestion">...</div>
-                                    <div class="autocomplete-suggestion">...</div>
-                                </div>
+                        
                                 
                                 @if ($errors->has('university'))
                                     <span class="help-block">
@@ -119,20 +113,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    var universities = [
-        { value: 'University College London' , data: 'UCL' },
-        { value: 'Imperial College London', data:'ICL' },
-        { value: 'The University of York', data:'YU' },
-        { value: 'London School of Economics', data: 'LSE' },
-        { value: 'Kings College London', data: 'KCL'}
-    ];
-
-    $('#university').autocomplete({
-        lookup: universities,
-        onSelect: function(suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-        }
-    });
-</script>
 @endsection
