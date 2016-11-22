@@ -48,4 +48,13 @@ class SearchController extends Controller
 
 	    	return view('search.results')->with('users', $users);
 	    }
+
+	    public function getUniSuggestion (Request $request)
+	    {
+	    	$term = $request->input('term');
+	    	$unis = University::where('name' , 'LIKE', "%{$term}%")
+	    		->pluck('name')->take(10)->toJson();
+
+	    	return $unis;
+	    }
 }
