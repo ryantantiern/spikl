@@ -12,15 +12,16 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-    <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script src="js/all.js"></script>
+
+
+
 </head>
 <body>
     <div id="app">
@@ -58,7 +59,7 @@
                             <!-- Search Bar -->
                             <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
                                 <div class="form-group">
-                                    <input type="text" name="query" class="form-control" placeholder="Find by university">
+                                    <input id="searchbar" type="text" name="query" class="form-control" placeholder="Find by university">
                                 </div>
                                 <button type="submit" class="btn btn-default">Search</button>
                             </form>
@@ -88,12 +89,33 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="containe    r">
             @yield('content')
         </div>
     </div>
 
     <!-- Scripts -->
+
     <script src="/js/app.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+    crossorigin="anonymous"></script>
+    <script>
+        $(window).on('load',function() {
+            $('#university').autocomplete({
+                source: "{{ route('search.register.uni') }}",
+                minLength: 4,
+                autoFocus: true,
+                delay: 250
+            });
+
+            $('#searchbar').autocomplete({
+                source: "{{ route('search.suggest.uni') }}",
+                minLength: 4,
+                autoFocus: true,
+                delay: 250
+            });
+        });
+    </script>
+
 </body>
 </html>
