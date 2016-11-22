@@ -36,3 +36,12 @@ Route::get('/search/suggest/{term?}', [
 	'uses' => 'SearchController@getUniSuggestion',
 	'as' => 'search.suggest.uni'
 ]);
+
+/**
+ *	Profile
+ */
+
+Route::get('/profile', [
+	'uses' => 'ProfileController@getProfile',
+	'as' => 'profile.index'
+]);

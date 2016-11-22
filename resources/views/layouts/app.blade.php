@@ -49,25 +49,28 @@
                         &nbsp;
                     </ul>
 
+                    <!-- Search Bar -->
+                    <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
+                        <div class="form-group">
+                            <input id="searchbar" type="text" name="query" class="form-control" placeholder="Find by university">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                    <!-- Search Bar End -->
+
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                       
+
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
-                            <!-- Search Bar -->
-                            <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
-                                <div class="form-group">
-                                    <input id="searchbar" type="text" name="query" class="form-control" placeholder="Find by university">
-                                </div>
-                                <button type="submit" class="btn btn-default">Search</button>
-                            </form>
-                            <!-- Search Bar End -->
-
+                            <li><a href="{{ route('profile.index')}}" role="button">{{ Auth::user()->firstName }}</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                   <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -89,7 +92,7 @@
                 </div>
             </div>
         </nav>
-        <div class="containe    r">
+        <div class="container">
             @yield('content')
         </div>
     </div>

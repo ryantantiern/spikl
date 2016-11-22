@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-		<div class="container">		
 			<h3>Your search for {{ Request::input('query') }}</h3>
 			@if (!count($users))
 				<p> No Results </p>
@@ -15,5 +14,4 @@
 					</div>
 				</div>
 			@endif
-		</div>
 @endsection
