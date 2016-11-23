@@ -8,7 +8,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						@foreach ($users as $user)
-							<h2>{{ $user->firstName }} {{ $user->lastName }}</h2>
+							<a href="{{ route('profile.index', ['uid' => $user->id]) }}"><h2>{{ $user->firstname }} {{ $user->lastname }}</h2></a>
 							<p> {{ $user->university->name }}</p>
 						@endforeach
 					</div>

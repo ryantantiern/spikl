@@ -28,10 +28,11 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `universities`;
 CREATE TABLE IF NOT EXISTS `universities` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `name` varchar(52) DEFAULT NULL,
   `lat` decimal(8,6) DEFAULT NULL,
   `lon` decimal(8,6) DEFAULT NULL,
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+ 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8;
 

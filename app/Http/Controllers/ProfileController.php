@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
     //
-    function getProfile()
+    function getProfile($uid)
     {
-    	return view('profile.index');
+    	$user = User::where('id', $uid)->first();
+    	return view('profile.index', ['user' => $user]);
     }
 }

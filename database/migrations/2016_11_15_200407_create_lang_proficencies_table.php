@@ -14,7 +14,7 @@ class CreateLangProficenciesTable extends Migration
     public function up()
     {
         //
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('language_proficiency', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('language_id');

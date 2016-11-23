@@ -49,6 +49,7 @@
                         &nbsp;
                     </ul>
 
+                @if (Auth::user())
                     <!-- Search Bar -->
                     <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
                         <div class="form-group">
@@ -56,7 +57,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">Search</button>
                     </form>
-                    <!-- Search Bar End -->
+                @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -67,7 +68,8 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
-                            <li><a href="{{ route('profile.index')}}" role="button">{{ Auth::user()->firstName }}</a></li>
+
+                            <li><a href="{{ route('profile.index', ['uid' => Auth::user()->id ]) }}" role="button">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    <span class="caret"></span>
@@ -107,14 +109,12 @@
             $('#university').autocomplete({
                 source: "{{ route('search.register.uni') }}",
                 minLength: 4,
-                autoFocus: true,
                 delay: 250
             });
 
             $('#searchbar').autocomplete({
                 source: "{{ route('search.suggest.uni') }}",
                 minLength: 4,
-                autoFocus: true,
                 delay: 250
             });
         });
