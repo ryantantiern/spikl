@@ -13,7 +13,16 @@
 			                	<p> No Results </p>
 			                @else 
 				                @foreach ($users as $user)
-				                	<a href="{{ route('profile.index', ['uid' => $user->id]) }}"><h2>{{ $user->firstname }} {{ $user->lastname }}</h2></a>
+				                	<a href="{{ route('profile.index', ['uid' => $user->id]) }}">
+										@if ($user->avatar != NULL)
+											<img src="/uploads/avatar/{{ $user->avatar }}" alt="profile-pic" 
+											style="width:100px; height:100px; float:left; border-radius:50%; margin-right:25px;"/>
+										@else
+											<img src="/uploads/avatar/default.png" alt="profile-pic" 
+											style="width:100px; height:100px; float:left; border-radius:50%; margin-right:25px;"/>
+										@endif
+					                	<h2>{{ $user->firstname }} {{ $user->lastname }}</h2>
+				                	</a>
 				                	<p> {{ $user->university->name }}</p>
 				                @endforeach
 				             @endif

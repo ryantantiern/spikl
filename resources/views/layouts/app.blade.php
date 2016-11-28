@@ -70,7 +70,9 @@
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
 
-                            <li><a href="{{ route('profile.index', ['uid' => Auth::user()->id ]) }}" role="button">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a></li>
+                            <li>
+                                 <a href="{{ route('profile.index', ['uid' => Auth::user()->id ]) }}" role="button">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    <span class="caret"></span>

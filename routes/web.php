@@ -41,3 +41,8 @@ Route::get('/settings', [
 	'uses' => 'ProfileController@getSettings',
 	'as' => 'profile.settings'
 ]);
+
+Route::post('/settings/avatar', [
+	'uses' => 'ProfileController@setProfilePicture',
+	'as' => 'profile.settings.avatar'
+]);
