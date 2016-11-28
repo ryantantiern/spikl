@@ -6,7 +6,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', [
+	'uses' => 'HomeController@index',
+	'as' => 'home']);
 
 /**
  * Search

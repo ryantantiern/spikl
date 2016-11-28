@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateUniversitiesTable extends Migration
 {
@@ -13,15 +14,15 @@ class CreateUniversitiesTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('universities', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->decimal('lat', 9, 6);
-            $table->decimal('long', 9, 6);
-        });
+        if (!Schema::hasTable('universities')){
+            Schema::create('universities', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->decimal('lat', 8, 6);
+                $table->decimal('lon', 8, 6);
+            });
+        }
     }
-
     /**
      * Reverse the migrations.
      *
@@ -29,6 +30,6 @@ class CreateUniversitiesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('universities');
     }
 }

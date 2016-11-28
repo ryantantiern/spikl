@@ -13,15 +13,16 @@ class CreateNotesTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('notes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('conversation_id');
-            $table->integer('user_id');
-            $table->string('title')->nullable();
-            $table->text('body');
-            $table->timestamp('created_at')->nullable();
-        });
+        if (!Schema::hasTable('notes')){
+            Schema::create('notes', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('conversation_id');
+                $table->integer('user_id');
+                $table->string('title')->nullable();
+                $table->text('body');
+                $table->timestamp('created_at')->nullable();
+            });
+        }
     }
 
     /**
@@ -31,6 +32,6 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('notes');
     }
 }
