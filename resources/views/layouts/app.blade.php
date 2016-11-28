@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
     <script>
@@ -77,9 +78,16 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ route('profile.settings') }}">
+                                        <i class="fa fa-gear fa-spin"></i>
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out fa-spin"></i>
                                             Logout
                                         </a>
 
@@ -87,11 +95,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('profile.settings') }}">
-                                            Settings
-                                        </a>
-                                    </li>
+                                
                                 </ul>
                             </li>
                         @endif

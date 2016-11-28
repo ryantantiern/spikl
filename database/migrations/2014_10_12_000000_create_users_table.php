@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->unsignedInteger('university_id');
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
         });
