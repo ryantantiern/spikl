@@ -8,9 +8,15 @@ use App\Models\User;
 class ProfileController extends Controller
 {
     //
-    function getProfile($uid)
+    public function getProfile($uid)
     {
     	$user = User::where('id', $uid)->first();
     	return view('profile.index', ['user' => $user]);
     }
+
+    public function getSettings() 
+    {
+    	return view('profile.settings');
+    }
+
 }

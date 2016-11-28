@@ -45,3 +45,8 @@ Route::get('/profile/{uid}', [
 	'uses' => 'ProfileController@getProfile',
 	'as' => 'profile.index'
 ]);
+
+Route::get('/settings', [
+	'uses' => 'ProfileController@getSettings',
+	'as' => 'profile.settings'
+]);
