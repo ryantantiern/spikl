@@ -13,15 +13,16 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('messages', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('conversation_id');
-            $table->integer('sender_id');
-            $table->integer('receiver_id');
-            $table->string('body');
-            $table->timestamp('created_at')->nullable();
-        });
+        if (!Schema::hasTable('messages')){
+            Schema::create('messages', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('conversation_id');
+                $table->integer('sender_id');
+                $table->integer('receiver_id');
+                $table->string('body');
+                $table->timestamp('created_at')->nullable();
+            });
+        }
     }
 
     /**
@@ -31,6 +32,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('messages');
     }
 }

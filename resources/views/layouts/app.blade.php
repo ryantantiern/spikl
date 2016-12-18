@@ -12,6 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+>>>>>>> f-profile-ryan
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
     <script>
@@ -49,13 +53,26 @@
                         &nbsp;
                     </ul>
 
+                @if (Auth::user())
+                    <!-- Search Bar -->
+                    <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
+                        <div class="form-group">
+                            <input id="searchbar" type="text" name="query" class="form-control" placeholder="Find by university">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                @endif
+
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                       
+
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+<<<<<<< HEAD
                             <!-- Search Bar -->
                             <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
                                 <div class="form-group">
@@ -64,17 +81,37 @@
                                 <button type="submit" class="btn btn-default">Search</button>
                             </form>
                             <!-- Search Bar End -->
+=======
+>>>>>>> f-profile-ryan
 
+                            <li>
+                                 <a href="{{ route('profile.index', ['uid' => Auth::user()->id ]) }}" role="button">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                   <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ route('profile.settings') }}">
+                                        <i class="fa fa-gear fa-spin"></i>
+                                            Settings
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('chat.index') }}">
+                                        <i class="fa fa-comment-o"></i>
+                                            Chats
+                                        </a>
+                                    </li>
+
+                                    <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out"></i>
                                             Logout
                                         </a>
 
@@ -82,6 +119,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                
                                 </ul>
                             </li>
                         @endif
@@ -89,9 +127,15 @@
                 </div>
             </div>
         </nav>
+<<<<<<< HEAD
         <div class="containe    r">
             @yield('content')
         </div>
+=======
+        
+        @yield('content')
+
+>>>>>>> f-profile-ryan
     </div>
 
     <!-- Scripts -->
@@ -104,14 +148,20 @@
             $('#university').autocomplete({
                 source: "{{ route('search.register.uni') }}",
                 minLength: 4,
+<<<<<<< HEAD
                 autoFocus: true,
+=======
+>>>>>>> f-profile-ryan
                 delay: 250
             });
 
             $('#searchbar').autocomplete({
                 source: "{{ route('search.suggest.uni') }}",
                 minLength: 4,
+<<<<<<< HEAD
                 autoFocus: true,
+=======
+>>>>>>> f-profile-ryan
                 delay: 250
             });
         });

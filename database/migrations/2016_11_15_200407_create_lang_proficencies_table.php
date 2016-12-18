@@ -13,13 +13,14 @@ class CreateLangProficenciesTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('notes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('language_id');
-            $table->enum('proficiency', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
-        });
+        if (!Schema::hasTable('language_proficiency')){
+                Schema::create('language_proficiency', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('user_id');
+                $table->integer('language_id');
+                $table->enum('proficiency', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
+            });
+        }
 
     }
 
@@ -31,5 +32,6 @@ class CreateLangProficenciesTable extends Migration
     public function down()
     {
         //
+        Schema::drop('language_proficiency');
     }
 }

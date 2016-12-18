@@ -68,8 +68,8 @@ class RegisterController extends Controller
         $uni_id = University::where('name', $data['university'])->first()->id;
 
         return User::create([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
+            'firstname' => $data['firstName'],
+            'lastname' => $data['lastName'],
             'university_id' => $uni_id,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),

@@ -1,23 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-/*
-Route::get('/', function () {
-    return view('welcome');
-});*/
+/**
+ * Auth
+ */
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', [
+	'uses' => 'HomeController@index',
+	'as' => 'home']);
 
 /**
  * Search
@@ -33,6 +24,40 @@ Route::get('/search/unis/suggest/{term?}', [
 ]);
 
 Route::get('/search/suggest/{term?}', [
+<<<<<<< HEAD
 	'uses' => 'SearchController@getUniSuggestion',
 	'as' => 'search.suggest.uni'
 ]);
+=======
+	'uses' => 'SearchController@getUniSugAssigned',
+	'as' => 'search.suggest.uni'
+]);
+
+/**
+ *	Profile
+ */
+
+Route::get('/profile/{uid}', [
+	'uses' => 'ProfileController@getProfile',
+	'as' => 'profile.index'
+]);
+
+Route::get('/settings', [
+	'uses' => 'ProfileController@getSettings',
+	'as' => 'profile.settings'
+]);
+
+Route::post('/settings/set', [
+	'uses' => 'ProfileController@set',
+	'as' => 'profile.settings.set'
+]);
+
+/**
+ * Chat
+ */
+
+Route::get('/chat', [
+	'uses' => 'ChatController@index',
+	'as' => 'chat.index'
+]);
+>>>>>>> f-profile-ryan
