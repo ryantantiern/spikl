@@ -21,19 +21,34 @@ class ProfileController extends Controller
     	return view('profile.settings');
     }
 
-    public function setProfilePicture(Request $request)
+    public function setProfilePicture($avatar)
     {
         // Handle the user upload avatar
+        $filename = time() . '.' . $avatar->getClientOriginalExtension();
+        Image::make($avatar)
+            ->resize(150,150)
+            ->save(public_path("uploads\\avatar\\{$filename}"));
+        $user = Auth::user();
+        $user->avatar = $filename;
+
+    }
+
+    public function set(Request $request)
+    {
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)
-                ->resize(150,150)
-                ->save(public_path("uploads\\avatar\\{$filename}"));
-            $user = Auth::user();
-            $user->avatar = $filename;
-            $user->save();
+            $this->setProfilePicture($avatar);
         }
+
+        if (!empty($request->firstname)) {
+            Auth::user()->firstname = $request->firstname;
+        }
+
+        if (!empty($request->lastname)) {
+            Auth::user()->lastname = $request->lastname;
+        }
+
+        Auth::user()->save();
 
         return view('profile.settings');
     }

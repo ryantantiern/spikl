@@ -85,11 +85,19 @@
                                             Settings
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a href="{{ route('chat.index') }}">
+                                        <i class="fa fa-comment-o"></i>
+                                            Chats
+                                        </a>
+                                    </li>
+
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            <i class="fa fa-sign-out fa-spin"></i>
+                                            <i class="fa fa-sign-out"></i>
                                             Logout
                                         </a>
 

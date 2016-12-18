@@ -42,7 +42,16 @@ Route::get('/settings', [
 	'as' => 'profile.settings'
 ]);
 
-Route::post('/settings/avatar', [
-	'uses' => 'ProfileController@setProfilePicture',
-	'as' => 'profile.settings.avatar'
+Route::post('/settings/set', [
+	'uses' => 'ProfileController@set',
+	'as' => 'profile.settings.set'
+]);
+
+/**
+ * Chat
+ */
+
+Route::get('/chat', [
+	'uses' => 'ChatController@index',
+	'as' => 'chat.index'
 ]);
