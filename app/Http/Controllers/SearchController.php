@@ -53,26 +53,19 @@ class SearchController extends Controller
 	    	return view('search.results')->with('users', $users);
 	    }
 
-<<<<<<< HEAD
-=======
 	    // @param GET : str 
 	    // return Json
 	    // returns all universities that match str
 	    	   
->>>>>>> f-profile-ryan
+
 	    public function getUniSuggestion (Request $request)
 	    {
 	    	$term = $request->input('term');
 	    	$unis = University::where('name' , 'LIKE', "%{$term}%")
-<<<<<<< HEAD
-	    		->pluck('name')->take(10)->toJson();
 
-	    	return $unis;
-	    }
-=======
-	    		->pluck('name')
-	    		->take(10)
-	    		->toJson();
+    		->pluck('name')
+    		->take(10)
+    		->toJson();
 
 	    	return $unis;
 	    }
@@ -93,5 +86,5 @@ class SearchController extends Controller
 	    }
 
 
->>>>>>> f-profile-ryan
+
 }

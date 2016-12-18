@@ -24,11 +24,6 @@ Route::get('/search/unis/suggest/{term?}', [
 ]);
 
 Route::get('/search/suggest/{term?}', [
-<<<<<<< HEAD
-	'uses' => 'SearchController@getUniSuggestion',
-	'as' => 'search.suggest.uni'
-]);
-=======
 	'uses' => 'SearchController@getUniSugAssigned',
 	'as' => 'search.suggest.uni'
 ]);
@@ -60,4 +55,4 @@ Route::get('/chat', [
 	'uses' => 'ChatController@index',
 	'as' => 'chat.index'
 ]);
->>>>>>> f-profile-ryan
+
